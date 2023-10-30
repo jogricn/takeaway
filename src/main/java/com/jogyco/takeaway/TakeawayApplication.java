@@ -3,7 +3,6 @@ package com.jogyco.takeaway;
 import com.jogyco.takeaway.config.openapi.OpenApiProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
