@@ -1,0 +1,34 @@
+[
+  {
+    "id":"190c59cf-e8f9-4e98-94b3-2cc44555450a",
+    "fullName":"Test Testeric1",
+    "email":"testemail1@gmail.com",
+    "birthday": "1983-10-25",
+    "hobbies":
+    [
+      "hobi neki tamo novi"
+    ]
+  },
+  {
+    "id":"190c59cd-e8f9-4e98-94b3-2cc44555450a",
+    "fullName":"Test Testeric2",
+    "email":"testemail2@gmail.com",
+    "birthday":"1973-10-25",
+    "hobbies":
+    [
+      "hobi neki tamo novi2",
+      "test 2"
+    ]
+  },
+  {
+    "id":"190c59cf-a8f0-4e98-94b3-2cc44555450a",
+    "fullName":"Test Testeric3",
+    "email":"testemail3@gmail.com",
+    "birthday":"1963-10-25",
+    "hobbies":
+    [
+      "hobi31",
+      "hobi 32"
+    ]
+  }
+]

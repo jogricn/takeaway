@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: employee
+  datasource:
+    username: 'jogyco'
+    url: jdbc:postgresql://localhost:2345/employee
+    password: 'password'
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: 'true'
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+  kafka:
+    bootstrap-services: localhost:9092
+#    producer:
+#      backs: -1
+#      bootstrap-servers: localhost:29092
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
