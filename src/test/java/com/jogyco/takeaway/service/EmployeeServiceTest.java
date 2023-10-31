@@ -79,10 +79,6 @@ class EmployeeServiceTest {
         ArgumentCaptor<Employee> employeeArgumentCaptor = ArgumentCaptor.forClass(Employee.class);
         verify(employeeRepository).save(employeeArgumentCaptor.capture());
         verify(kafkaProducer).send(any());
-
-//        Employee value = employeeArgumentCaptor.getValue();
-//
-//        assertThat(value).isEqualTo(employee);
     }
 
     @Test

@@ -28,9 +28,6 @@ class EmployeeControllerTest {
     @Autowired
     TestRestTemplate testRestTemplate;
 
-//    @Autowired
-//    WebTestClient webTestClient;
-
     @Autowired
     EmployeeRepository employeeRepository;
 
@@ -122,22 +119,6 @@ class EmployeeControllerTest {
                 .put("/api/v1/employees/{id}", employeeUpdateRequest, employeeId);
 
         Assertions.assertThatNoException();
-//        final ResponseEntity<Employee> response = testRestTemplate
-//                .withBasicAuth("admin", "admin")
-//                .exchange(
-//                    String.format("http://localhost:8080/api/v1/employees/%s", employeeId),
-//                    HttpMethod.PUT,
-//                    new HttpEntity<>(employeeUpdateRequest),
-//                    Employee.class
-//        );
-//        Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-//        Assertions.assertThat(response.getBody()).isEqualTo(Employee.builder()
-//                .id(UUID.fromString("190c59cd-e8f9-4e98-94b3-2cc44555450a"))
-//                .fullName("FirstnameX, LastnameX")
-//                .email("emailx@test.com")
-//                .birthday(LocalDate.parse("1973-10-25"))
-//                .hobbies(List.of("Hobby X", "testHobby 2"))
-//                .build());
     }
 
     @Test

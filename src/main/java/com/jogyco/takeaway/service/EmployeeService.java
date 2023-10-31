@@ -41,7 +41,6 @@ public class EmployeeService {
         var savedEmployee = employeeRepository.save(employee);
         // Create Kafka message and send notification
         var employeeMessage = buildEmployeeMessage(savedEmployee, EmployeeMessage.Event.CREATED);
-        //kafkaProducer.send("takeaway", savedEmployee.getId().toString(), employeeMessage);
         kafkaProducer.send(employeeMessage);
 
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
