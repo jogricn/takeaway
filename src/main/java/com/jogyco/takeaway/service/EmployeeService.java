@@ -56,7 +56,7 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
-    public void updateEmployee(EmployeeUpdateRequest employee) {
+    public Employee updateEmployee(EmployeeUpdateRequest employee) {
         var id = employee.id();
         var email = employee.email();
 
@@ -69,10 +69,12 @@ public class EmployeeService {
         employeeById.setEmail(email);
         employeeById.setHobbies(employee.hobbies());
         employeeById.setFullName(employee.firstName() + " " + employee.lastName());
-        employeeRepository.save(employeeById);
+        var updatedEmployee = employeeRepository.save(employeeById);
 
         var employeeMessage = buildEmployeeMessage(employeeById, EmployeeMessage.Event.UPDATED);
         kafkaProducer.send(employeeMessage);
+
+        return updatedEmployee;
     }
 
     public void deleteEmployee(UUID id) {

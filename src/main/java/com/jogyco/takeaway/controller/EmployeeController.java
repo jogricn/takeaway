@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -57,15 +58,15 @@ public class EmployeeController {
     //@PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping(path = "{id}")
     @Operation(summary = "Delete employee by Id", description = "Delete a specific employee with provided uuid")
-    public void deleteEmployeeById(@PathVariable("id") UUID id) {
+    public ResponseEntity<?> deleteEmployeeById(@PathVariable("id") UUID id) {
         employeeService.deleteEmployee(id);
+        return ResponseEntity.ok("Employee is deleted!");
     }
 
     @PutMapping
     @Operation(summary = "Update employee", description = "Update employee ...")
-    public void updateEmployee(@RequestBody EmployeeUpdateRequest employee) {
-        employeeService.updateEmployee(employee);
-
+    public ResponseEntity<Employee> updateEmployee(@RequestBody EmployeeUpdateRequest employee) {
+        return new ResponseEntity<>(employeeService.updateEmployee(employee), HttpStatus.CREATED);
     }
 
 }
