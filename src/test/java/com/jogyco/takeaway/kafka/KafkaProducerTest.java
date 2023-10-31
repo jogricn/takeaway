@@ -8,6 +8,7 @@ import org.apache.kafka.common.serialization.StringDeserializer;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.listener.KafkaMessageListenerContainer;
@@ -98,7 +99,7 @@ class KafkaProducerTest {
     private Map<String, Object> getConsumerProperties() {
         return Map.of(
                 ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, embeddedKafkaBroker.getBrokersAsString(),
-                ConsumerConfig.GROUP_ID_CONFIG, "consumer",
+                ConsumerConfig.GROUP_ID_CONFIG, "test-group",
                 ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true",
                 ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, "10",
                 ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, "60000",

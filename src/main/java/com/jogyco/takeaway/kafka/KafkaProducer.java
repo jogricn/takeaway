@@ -19,11 +19,7 @@ public class KafkaProducer {
     }
 
     public void send(EmployeeMessage employeeMessage){
-        kafkaTemplate.send(topic, employeeMessage.getId(), employeeMessage);
-    }
-
-    public void send(String topicName, String key, EmployeeMessage employeeMessage) {
-        var future = kafkaTemplate.send(topicName, key, employeeMessage);
+        var future = kafkaTemplate.send(topic, employeeMessage.getId(), employeeMessage);
         future.whenComplete((sendResult, exception) -> {
             if (exception != null) {
                 log.error(exception.getMessage());
