@@ -38,7 +38,7 @@ mvn clean install
 ```
   Run the app
 ```shell
-mvn spring-boot:run -Pdocker-compose
+mvn spring-boot:run
 ```
 
 - It will start the service, which will communicate with Kafka and DB that are in docker
